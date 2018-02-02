@@ -1,0 +1,43 @@
+<div class="container">
+  <form [formGroup]="bikeform" (ngSubmit)="submitRegistration()" novalidate>
+    <div *ngIf="validMessage != ''">
+      <h3 class="has-info">{{validMessage}}</h3>
+    </div>
+    <div class="form-group">
+      <label>Buyer Name</label>
+      <input type="text" class="form-control" formControlName="name" required autofocus/>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" formControlName="email" required/>
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="text" class="form-control" formControlName="phone" required/>
+    </div>
+    <div class="form-group">
+      <label>Bike Model</label>
+      <select class="form-control" formControlName="model" required>
+        <option value="">Please select a bike</option>
+        <option *ngFor="let m of models"
+                [value]="m">
+                {{m}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Bike Serial Number</label>
+      <input type="text" class="form-control" formControlName="serialNumber" required/>
+    </div>
+    <div class="form-group">
+      <label>Purchase Price</label>
+      <input type="text" class="form-control" formControlName="purchasePrice" required/>
+    </div>
+    <div class="form-group">
+      <label>Purchase Date</label>
+      <input type="text" class="form-control" formControlName="purchaseDate" required/>
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
+</div>
